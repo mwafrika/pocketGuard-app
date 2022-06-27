@@ -3,8 +3,8 @@ class CreateTransancts < ActiveRecord::Migration[7.0]
     create_table :transancts do |t|
       t.timestamps
       t.string :name
-      t.integer :user_id,
-      t.integer :amount
+      t.integer :user_id
+      t.integer :amount, default: 0
     end
   end
 end
