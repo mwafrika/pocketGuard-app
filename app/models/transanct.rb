@@ -1,0 +1,2 @@
+class Transanct < ApplicationRecord
+end
