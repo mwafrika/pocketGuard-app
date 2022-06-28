@@ -2,7 +2,7 @@
 
 # Project Name
 
-> Description the project.
+> A mobile web application where people can manage their budget
 
 
 ## Built With
