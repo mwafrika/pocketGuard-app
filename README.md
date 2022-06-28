@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A mobile web application where people can manage their budget
 
 Things you may want to cover:
 
