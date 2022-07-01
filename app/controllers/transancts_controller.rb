@@ -1,0 +1,2 @@
+class TransanctsController < ApplicationController
+end
