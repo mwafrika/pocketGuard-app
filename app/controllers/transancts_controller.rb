@@ -24,6 +24,12 @@ class TransanctsController < ApplicationController
     redirect_to user_category_path(current_user, params[:category_id])
   end
 
+  def destroy
+    @transac = current_user.categories.find(params[:category_id]).transacs.find(params[:transac_id])
+    @transac.destroy
+    redirect_to category_transacs_path(@transac.category_id)
+  end
+
   private
 
   def transancts_params
