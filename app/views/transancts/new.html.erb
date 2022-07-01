@@ -1,1 +1,33 @@
-<h1>New transanction</h1>
+<section class="sign-up">
+  <header class="d-flex mb-3 justify-content-between align-items-center bg-primary text-white">
+    <%= link_to root_path, class: "text-white" do %>
+     <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    <%end%>
+    <h2 class= "justify-self-center">NEW TRANSACTION</h2>
+    <div></div>
+  </header>
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+      <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %> 
+ <%= form_with(model: @transancts, url: { action: "create" }) do |form| %>
+  <div class="field">
+    <%= form.text_field :name, autofocus: true, placeholder: "Name", autocomplete: "", class: ""%>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :amount, placeholder: "Amount", class: "border-top border-2" %>
+  </div>
+
+    <div class="field">
+        <%= form.select :category_id, @categories.map { |t| [t.name, t.id]}, {}, class: 'form-control mb-3 mt-3', placeholder:'Category' %>
+    </div>
+    
+  <div class="actions">
+  <%= form.submit "SAVE" %>
+  </div>
+<% end %>
+</section>
