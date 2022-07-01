@@ -1,1 +1,40 @@
-<h1>Categories</h1>
+<section class="categories">
+<header class="d-flex justify-content-between align-items-center bg-primary text-white py-2 px-3">
+     <div>
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <h2 class= "justify-self-center">CATEGORIES</h2>
+    <div>
+    <%= link_to destroy_user_session_path, class:'text-white', :method => :delete do %>
+         <i class="fas fa-sign-out-alt "></i>
+    <% end %>
+    </div>
+  </header>
+
+
+<ul class="d-flex categories-ul flex-column align-items-center">
+    <% @categories.each do |category| %>
+        <li class="category ">
+            <%= link_to user_category_path(category.user, category), class: ' list-group-item d-flex justify-content-between align-items-center' do %>
+                <div class="h-100 py-2 d-flex justify-content-between align-items-center ">
+                    <img src="<%= category.icon %>" class="h-75 rounded"/>
+                    <div class="text-secondary ml-2 p-2">
+                        <p class="mb-3 text-capitalize"><%= category.name %></p>
+                        <p class="smal-txt"><%= category.created_at.strftime("%d %b %Y") %> </p>
+
+                    </div>
+                </div>
+                
+                <div class="fw-bold">
+                    <%= number_to_currency(category.transancts.sum(:amount))%>
+                </div>
+            <% end %>
+        </li>
+    <% end %>
+</ul>
+
+<div class="scan">
+<%= link_to "ADD NEW CATEGORY", new_user_category_path(current_user) %>
+
+</div>
+</section>
