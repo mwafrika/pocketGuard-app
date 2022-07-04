@@ -1,5 +1,5 @@
 class AddUserToCategory < ActiveRecord::Migration[7.0]
   def change
-    add_reference :categories, :user, null: false, foreign_key: true
+    add_column :categories, :user_id, :integer
   end
 end

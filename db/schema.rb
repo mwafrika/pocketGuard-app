@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_27_210338) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_04_155502) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,18 +19,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_27_210338) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_categories_on_user_id"
+    t.integer "user_id"
+  end
+
+  create_table "category_transacts", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "transanct_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_transacts_on_category_id"
+    t.index ["transanct_id"], name: "index_category_transacts_on_transanct_id"
   end
 
   create_table "transancts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.integer "user_id"
     t.integer "amount", default: 0
-    t.bigint "category_id", null: false
-    t.index ["category_id"], name: "index_transancts_on_category_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_27_210338) do
   end
 
   add_foreign_key "categories", "users"
-  add_foreign_key "transancts", "categories"
+  add_foreign_key "category_transacts", "categories"
+  add_foreign_key "category_transacts", "transancts"
+  add_foreign_key "transancts", "users"
 end

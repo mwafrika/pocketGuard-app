@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :categories, dependent: :destroy
-  has_many :transancts, dependent: :destroy
+  has_many :transancts, foreign_key: 'user_id', dependent: :destroy
+
+  validates :name, presence: true, length: { maximum: 50 }
 end
