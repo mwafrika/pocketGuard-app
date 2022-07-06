@@ -1,0 +1,70 @@
+<h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"flex flex-col justify-between gap-y-4 py-2") do |f| %>
+  <h2 class="my-3 text-center text-3xl font-bold text-sky-500 home-title">Login</h2>
+  <div class="field w-full flex flex-col my-3">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field w-full flex flex-col my-3">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field w-full flex flex-col my-3">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="w-full bg-sky-500 p-2 text-center mb-4 font-bold cursor-pointer hover:bg-sy-800 text-white">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<div class="flex flex-col p-0">
+      <%= render "devise/shared/links" %>
+</div>
+
+
+
+
+
+
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class:"flex flex-col justify-between gap-y-4 py-2") do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<h2 class="my-3 text-center text-3xl font-bold text-sky-500 home-title">Sign up</h2>
+  <div class="field w-full flex flex-col my-3">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  <div class="w-full flex flex-col my-3">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field w-full flex flex-col my-3">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field w-full flex flex-col my-3">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="w-full bg-sky-500 p-2 text-center mb-4 font-bold cursor-pointer hover:bg-sy-800 text-white">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<div class="flex flex-col p-0">
+      <%= render "devise/shared/links" %>
+</div>
