@@ -3,7 +3,7 @@ class TransanctsController < ApplicationController
   before_action :set_transact, only: %i[show edit update destroy]
   
   def index
-       @transancts = current_user.categories.find(params[:category_id]).transancts
+       @transancts = current_user.categories.find(params[:category_id]).transancts.order(created_at: :desc)
        @category = current_user.categories.find(params[:category_id])
   end
 
@@ -12,14 +12,11 @@ class TransanctsController < ApplicationController
   end
 
   def new
-    # @categories = current_user.categories
-    # @transancts = current_user.categories.find(params[:category_id]).transancts.new
     @category = Category.find(params[:category_id])
     @transanct = Transanct.new
   end
 
   def create
-    # @transancts = @categories.find(params[:category_id]).transancts.create(transancts_params)
     @transanct = Transanct.new(transancts_params)
     @transanct.user = current_user
     @category = Category.find(params[:category_id])
