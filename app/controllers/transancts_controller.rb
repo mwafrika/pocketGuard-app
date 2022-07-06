@@ -1,10 +1,10 @@
 class TransanctsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_transact, only: %i[show edit update destroy]
-  
+
   def index
-       @transancts = current_user.categories.find(params[:category_id]).transancts.order(created_at: :desc)
-       @category = current_user.categories.find(params[:category_id])
+    @transancts = current_user.categories.find(params[:category_id]).transancts.order(created_at: :desc)
+    @category = current_user.categories.find(params[:category_id])
   end
 
   def show
@@ -21,12 +21,12 @@ class TransanctsController < ApplicationController
     @transanct.user = current_user
     @category = Category.find(params[:category_id])
     @category.transancts << @transanct
-   
+
     if @transanct.save
-       redirect_to category_transancts_path(params[:category_id])
+      redirect_to category_transancts_path(params[:category_id])
     else
       flash[:alert] = 'All fields are required'
-      redirect_to category_transanct_path(params[:category_id],current_user)
+      redirect_to category_transanct_path(params[:category_id], current_user)
     end
   end
 
