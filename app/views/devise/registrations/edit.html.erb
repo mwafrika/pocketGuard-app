@@ -1,8 +1,9 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name),class:"flex flex-col justify-between gap-y-4 py-2", html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
+  <h2 class="my-3 text-center text-3xl font-bold text-sky-500 home-title">Edit profile</h2>
+  <div class="field w-full flex flex-col my-3">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
@@ -24,17 +25,17 @@
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="field w-full flex flex-col my-3">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="field w-full flex flex-col my-3">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <div class="actions">
+  <div class="w-full bg-sky-500 p-2 text-center mb-4 font-bold cursor-pointer hover:bg-sy-800 text-white rounded-lg">
     <%= f.submit "Update" %>
   </div>
 <% end %>
@@ -44,3 +45,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+

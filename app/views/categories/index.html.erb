@@ -1,1 +1,37 @@
-<h1>Categories</h1>
+<section class="flex justify-between flex-col h-screen">
+<header class="flex justify-between items-center bg-sky-600 text-white py-5 px-3 font-bold">
+     <div>
+      <p class="text-2xl">💰</p>
+    </div>
+    <h2 class= "justify-self-center">CATEGORIES</h2>
+    <div>
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "sign_out text_white" %>
+    </div>
+</header>
+
+<ul class="flex flex-col w-[95%] mx-auto gap-y-4 h-[34rem] overflow-y-auto overflow-x-hidden list">
+    <% if @categories.length == 0 %>
+        <p class="text-center">No categories yet</p>
+    <% else %>
+    <% @categories.each do |category| %>
+     <%= link_to category_transancts_path(category), class: '' do %>
+        <li class="flex flex-row h-24 w-full bg-white justify-between items-center pr-4">
+                <img src="<%= category.icon %>" class="h-24"/>
+                <div class="text-secondary ml-2 p-2">
+                    <p class="mb-3 uppercase text-sky-600"><%= category.name %></p>
+                    <p class="smal-txt"><%= category.created_at.strftime("%d %b %Y") %> </p>
+                </div>
+                <div class="">
+                    <%= number_to_currency(category.transancts.sum(:amount))%>
+                </div>
+        </li>
+     <% end %>
+    <% end %>
+    <% end %>
+</ul>
+
+<div class="flex justify-center items-center bg-sky-600 text-white py-5 px-3 font-bold">
+    
+      <%= link_to "ADD NEW CATEGORY", new_category_path(@category,current_user),  class:"flex justify-center border border-sky-500 w-[95%] py-3 cursor-pointer hover:bg-sky-700" %>
+</div>
+</section>
