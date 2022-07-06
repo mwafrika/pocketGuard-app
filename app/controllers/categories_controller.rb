@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
     @category = current_user.categories.create(category_params)
     if @category.save
 
-      redirect_to user_categories_path
+      redirect_to categories_path
     else
       flash[:alert] = 'All fields are required'
       render :new

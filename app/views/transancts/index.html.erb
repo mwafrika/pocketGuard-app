@@ -1,1 +1,38 @@
-<h1>Get all transanctions</h1>
+<div class="flex justify-between flex-col h-screen">
+<div>
+<header class="flex justify-between items-center bg-sky-600 text-white py-5 px-3 font-bold">
+     <div>
+      <i class="fa fa-bars" aria-hidden="true"></i>
+      <p>Default logo</p>
+    </div>
+    <h2 class= "justify-self-center">Transanctions</h2>
+    <div>
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "sign_out text_white" %>
+    </div>
+</header>
+<div class="bg-white py-4 px-2 text-center">
+   Total amount: <span class="fw-bold"> <%= number_to_currency(@category.transancts.sum(:amount)) %></span>
+</div>
+</div>
+<ul class="flex flex-col w-[95%] mx-auto gap-y-2 h-[34rem] overflow-y-auto overflow-x-hidden list">
+  <% if @transancts.length == 0 %>
+         <p class="text-center text-slate-800">No transactions created yet</p>
+   <% else %>
+    <%  @transancts.each do |transanct| %>
+        <li class="flex flex-row h-24 w-full bg-white justify-between items-center px-4 mt-6">
+                <div>
+                    <p class="mb-3 text-capitalize"><%= transanct.name %></p>
+                    <p class="smal-txt text-secondary"><%= transanct.created_at.strftime("%d %B %Y") %> at <%= transanct.created_at.strftime("%H:%M") %></p>
+                </div>                              
+                <div class="my-2">
+                     <span class="fw-bold"> <%= number_to_currency(transanct.amount) %></span>
+                </div>
+        </li>
+    <% end %>
+    <%end%>
+</ul>
+
+<div class="flex justify-center items-center bg-sky-600 text-white py-5 px-3 font-bold">
+    <%= link_to "ADD NEW TRANSANCTION", new_category_transanct_path(@category),  class:"flex justify-center border border-sky-500 w-[95%] py-3 cursor-pointer hover:bg-sky-700" %>
+</div>
+</div>

@@ -2,12 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&family=Lato&display=swap');
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+body {
+  position: relative;
+  background-color: #e7e9ec;
 }
 
-*/
+.list {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.list::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.home-title {
+  font-family: 'Dancing Script', sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+}

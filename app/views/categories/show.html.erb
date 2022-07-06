@@ -13,26 +13,8 @@
     </div>
   </header>
 
+<img src="<%= @category.icon %>" class="h-75 rounded"/>
 <div class="bg-white py-4 px-2">
-   Total amount: <span class="fw-bold"> <%= number_to_currency(@category.transancts.sum(:amount)) %></span>
-</div>
-
-<ul class="d-flex categories-ul flex-column align-items-center">
-    <%  @transancts.each do |transanct| %>
-        <li class="transancts list-group-item d-flex justify-content-between m-3">
-                <div>
-                    <p class="mb-3 text-capitalize"><%= transanct.name %></p>
-                    <p class="smal-txt text-secondary"><%= transanct.created_at.strftime("%d %B %Y") %> at <%= transanct.created_at.strftime("%H:%M") %></p>
-                </div>                              
-                <div class="my-2">
-                     <span class="fw-bold"> <%= number_to_currency(transanct.amount) %></span>
-                </div>
-        </li>
-    <% end %>
-</ul>
-
-<div class="scan">
-<%= link_to "ADD NEW TRANSANCTION", new_user_category_transanct_path(current_user, @category) %>
-
+   <%= @category.name %>
 </div>
 </section>

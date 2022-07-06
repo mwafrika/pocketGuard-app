@@ -3,11 +3,8 @@ class TransanctsController < ApplicationController
   before_action :set_transact, only: %i[show edit update destroy]
   
   def index
-    if Transanct.all.empty?
-      'array is empty'
-    else
-      @transancts = current_user.categories.find(params[:category_id]).transancts
-    end
+       @transancts = current_user.categories.find(params[:category_id]).transancts
+       @category = current_user.categories.find(params[:category_id])
   end
 
   def show
@@ -17,7 +14,6 @@ class TransanctsController < ApplicationController
   def new
     # @categories = current_user.categories
     # @transancts = current_user.categories.find(params[:category_id]).transancts.new
-    @categories = current_user.categories 
     @category = Category.find(params[:category_id])
     @transanct = Transanct.new
   end
@@ -30,10 +26,10 @@ class TransanctsController < ApplicationController
     @category.transancts << @transanct
    
     if @transanct.save
-       redirect_to user_category_path(current_user, params[:category_id])
+       redirect_to category_transancts_path(params[:category_id])
     else
       flash[:alert] = 'All fields are required'
-      redirect_to new_user_category_transanct_path(current_user, params[:category_id])
+      redirect_to category_transanct_path(params[:category_id],current_user)
     end
   end
 
@@ -50,6 +46,6 @@ class TransanctsController < ApplicationController
   end
 
   def transancts_params
-    params.require(:transanct).permit(:amount, :name,:category_id)
+    params.require(:transanct).permit(:amount, :name)
   end
 end
