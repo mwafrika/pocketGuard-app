@@ -30,7 +30,7 @@
 
 ## Video Link
 
-[VIDEO LINK](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[VIDEO LINK](https://youtu.be/hGYMYzlfvyM)
 
 ## Getting Started
 
