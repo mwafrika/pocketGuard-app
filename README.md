@@ -1,57 +1,81 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# PocketGuard
 
-> A mobile web application where people can manage their budget
+> PocketGuard is a mobile web application that assists users with money management. It may also show consumers a list of transactions they've done that are tied to their categories, as well as the overall amount of money they've spent.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Ruby
+- Ruby on rails
+- TailwindCSS
 
-## Live Demo (if available)
+## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://budget-app-shop.herokuapp.com)
+
+## Video Link
+
+[VIDEO LINK](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-To get a local copy up and running follow these simple example steps.
+**To get local copy up and running the application follow these simple steps:**
 
 ### Prerequisites
 
+You need the following tools be installed in your computer:
+
+- Git
+- Ruby
+- Rails
+
 ### Setup
+
+1. Download the Zip file or clone the repo with:
+
+   `git clone https://github.com/cynthiainga/Budget_App.git`
+
+2. To access the project directory
+   `cd Budget_App`
 
 ### Install
 
-### Usage
+`bundle install`
+`rails db:migrate`
+
+### To run the app locally in the browser use:
+
+`rails s`
 
 ### Run tests
 
+To run tests:
+
+- `bundle exec rspec` or
+- `rspec`
+
 ### Deployment
+
+To deploy to Heroku:
+
+- `heroku create`
+- `git push heroku master`
+- `heroku open`
 
 ## Authors
 
-👤 **Author1**
+👤 **Mwafrika Josué**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@mwafrika](https://github.com/mwafrika)
+- Twitter: [@mwafrika](https://twitter.com/mwafrikamufung1)
+- LinkedIn: [@mwafrika](https://linkedin.com/in/mwafrika-mufungizi)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/mwafrika/budget-app/issues).
 
 ## Show your support
 
