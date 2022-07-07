@@ -12,7 +12,7 @@
 
 ### Categories page (Home page)
 
-![](./Categories.png)
+![](./categories.png)
 
 ### Transanctions page
 
