@@ -20,13 +20,13 @@ class TransanctsController < ApplicationController
     @transanct = Transanct.new(transancts_params)
     @transanct.user = current_user
     @category = Category.find(params[:category_id])
-    @category.transancts << @transanct
+    @category.transancts << @transanct if @transanct.save
 
     if @transanct.save
       redirect_to category_transancts_path(params[:category_id])
     else
       flash[:alert] = 'All fields are required'
-      redirect_to category_transanct_path(params[:category_id], current_user)
+      render :new
     end
   end
 

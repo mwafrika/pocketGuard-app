@@ -10,7 +10,6 @@
     <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "sign_out text_white" %>
     </div>
 </header>
-
     <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -24,8 +23,8 @@
   <div class="field">
     <%= form.text_field :icon, autofocus: true, placeholder: "Enter the image url", type:'url', autocomplete: "", class: "w-[25rem]"%>
   </div>
-  <div class="flex w-full bg-sky-500 text-white px-5 py-2 rounded-sm justify-center font-bold cursor-pointer">
-  <%= form.submit "SAVE" %>
+  <div class="flex w-full bg-sky-500 text-white px-5 py-2 rounded-sm justify-center font-bold">
+  <%= form.submit "SAVE", class:"w-full cursor-pointer" %>
   </div>
 <% end %>
 <div class="flex justify-center items-center bg-sky-600 text-white py-5 px-3 font-bold">
