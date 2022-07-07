@@ -15,11 +15,11 @@ RSpec.describe 'category', type: :feature do
     expect(page).to have_content 'CATEGORIES'
     expect(page).to have_content 'Sign out'
     expect(page).to have_content '💰'
-  end 
+  end
 
   it 'to have a button new category' do
     expect(page).to have_content 'ADD NEW CATEGORY'
-  end 
+  end
 
   it 'should able to sign out' do
     click_button 'Sign out'

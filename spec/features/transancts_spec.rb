@@ -15,11 +15,11 @@ RSpec.describe 'category', type: :feature do
     expect(page).to have_content 'Transanctions'
     expect(page).to have_content 'Sign out'
     expect(page).to have_content '💰'
-  end 
+  end
 
   it 'to have a button new transanction' do
     expect(page).to have_content 'ADD NEW TRANSANCTION'
-  end 
+  end
 
   it 'should able to sign out' do
     click_button 'Sign out'
@@ -39,5 +39,5 @@ RSpec.describe 'category', type: :feature do
   it 'should have Total transactions' do
     visit category_transancts_path Category.first
     expect(page).to have_content 'Total amount'
-  end 
+  end
 end
