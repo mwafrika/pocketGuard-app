@@ -4,6 +4,20 @@
 
 > PocketGuard is a mobile web application that assists users with money management. It may also show consumers a list of transactions they've done that are tied to their categories, as well as the overall amount of money they've spent.
 
+## Screenshots
+
+### Splash Screen
+
+![](./budgetApp.png)
+
+### Categories page (Home page)
+
+![](./Categories.png)
+
+### Transanctions page
+
+![](./Transanctions.png)
+
 ## Built With
 
 - Ruby
