@@ -6,7 +6,17 @@
 
 ## Screenshots
 
+### Splash Screen
+
 ![](./budgetApp.png)
+
+### Categories page (Home page)
+
+![](./Categories.png)
+
+### Transanctions page
+
+![](./Transanctions.png)
 
 ## Built With
 
