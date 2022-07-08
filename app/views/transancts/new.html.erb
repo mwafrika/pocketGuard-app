@@ -1,0 +1,39 @@
+<section class="flex flex-col justify-between h-screen">
+
+  <header class="flex justify-between items-center bg-sky-600 text-white py-5 px-3 font-bold">
+    <div class="justify-self-start rounded-full">
+      <%= link_to categories_path, class: "text-xl border border-2 p-2 text-xl rounded-full" do %>
+          <span class="text-2xl">&#8701;</span>
+      <% end %>
+    </div>
+    <h2 class= "justify-self-center">NEW TRANSANCTION</h2>
+    <div>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "sign_out text_white" %>
+    </div>
+  </header>
+  
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% end %> 
+ 
+ <%= form_with(model: @transanct, url: {action: "create" }, class:"border-top border-2 mx-auto flex flex-col justify-between gap-y-5") do |form| %>
+  <div class="field">
+    <%= form.text_field :name, autofocus: true, placeholder: "Name", autocomplete: "", class: "w-[25rem]"%>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :amount, placeholder: "Amount", class: "border-top border-2 w-[25rem]" %>
+  </div>
+    
+  <div class="flex w-full bg-sky-500 text-white px-5 py-2 rounded-sm justify-center font-bold">
+    <%= form.submit "SAVE", class:"w-full cursor-pointer"  %>
+  </div>
+<% end %>
+<div class="flex justify-center items-center bg-sky-600 text-white py-5 px-3 font-bold">
+    <h2>@mwafrika</h2>
+</div>
+
+</section>
